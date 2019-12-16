@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start with Vue Js 2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<div id="app" class="container mt-5">
+
+    <h1>{{titulo}}</h1>
+
+    <input type="text" v-model="nuevaFruta" @keyup.enter="agregarFruta">
+    <button @click="agregarFruta">Agregar</button>
+
+    <ul>
+        <li v-for="fruta of frutas"> {{fruta.nombre}} - {{fruta.cantidad}}
+            <input type="text" v-model.number="fruta.cantidad">
+            <button @click="fruta.cantidad++">+</button>
+            <span v-if="fruta.cantidad === 0"> - Sin Stock</span>
+        </li>
+    </ul>
+
+    <h4>Total : {{sumarFrutas}}</h4>
+
+    <div class="bg-danger" :class="['p-3', 'text-white']">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="src/01.js"></script>
+
+</body>
+</html>
