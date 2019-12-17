@@ -1,3 +1,18 @@
+Vue.component('init-component', {
+    template: '<div><' +
+        'h1>{{titulo}}</h1><h5>{{numero}}</h5>' +
+        '<person-component @nombreHijo="nombrePadre = $event"></person-component>' +
+        'Padre es {{nombrePadre}}'+
+        '</div>',
+    props: ['numero'],
+    data() {
+        return {
+            titulo: 'Component Vue',
+            nombrePadre: ''
+        };
+    }
+});
+
 const app = new Vue({
     el: '#app',
     data: {
@@ -23,5 +38,17 @@ const app = new Vue({
             }
             return this.totalFrutas;
         }
+    },
+    beforeCreate() {
+        console.log('Constructor');
+    },
+    created() {
+        console.log('Init');
+    },
+    beforeMount() {
+        console.log('Antes de insertar al DOM');
+    },
+    mounted() {
+        console.log('Insertado html en el DOM');
     }
 });

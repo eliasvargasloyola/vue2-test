@@ -10,7 +10,7 @@
 
 <div id="app" class="container mt-5">
 
-    <h1>{{titulo}}</h1>
+    <init-component numero="5"></init-component>
 
     <input type="text" v-model="nuevaFruta" @keyup.enter="agregarFruta">
     <button @click="agregarFruta">Agregar</button>
@@ -38,6 +38,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuex@3.1.2/dist/vuex.js"></script>
+<script src="src/person.js"></script>
 <script src="src/01.js"></script>
 
 </body>
